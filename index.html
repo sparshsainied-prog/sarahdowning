@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Sarah Downing | Flesh and Blood</title>
+<meta name="description" content="Sarah Downing writes character-driven dark fantasy. Flesh and Blood, a vampire noir set in a Britain where magic is commonplace, is out now.">
+<meta property="og:title" content="A homepage for Sarah Downing, made by Sparsh Saini">
+<meta property="og:description" content="A homepage idea for Sarah Downing and Flesh and Blood, made by Sparsh Saini. Not the official site.">
+<meta property="og:image" content="https://sparshsainied-prog.github.io/sarahdowning/img/og.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23120812'/><circle cx='13' cy='13' r='8' fill='%23b4451f'/><path d='M20 6c-4 1-5 5-4 8l-2 4h8l4 10H12' fill='none' stroke='%23d9c48a' stroke-width='1.6'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Colours from the Flesh and Blood cover: the night, the blood moon, the pink mist of the
+   lamplit street, and the old gold of the title. */
+:root {
+  --night: #0d070d;
+  --plum: #1d0f1f;
+  --dusk: #3a1736;
+  --moon: #b4451f;
+  --mist: #d48bc8;
+  --gold: #d9c48a;
+  --bone: #f2ebe4;
+  --bone-2: #c6b6bf;
+  --display: "Marcellus", "Trajan Pro", Georgia, serif;
+  --text: "Spectral", Georgia, serif;
+  --gutter: clamp(1rem, 5vw, 4rem);
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--night); color: var(--bone); font-family: var(--text); font-size: 1.15rem; line-height: 1.6; overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+.wrap { max-width: 70rem; margin: 0 auto; padding: 0 var(--gutter); }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; margin: 0; line-height: 1.05; letter-spacing: .04em; }
+p { margin: 0 0 1rem; }
+:focus-visible { outline: 2px solid var(--mist); outline-offset: 3px; }
+/* Buttons in the title's gold and capitals, on the night, square like the cover */
+.btn { display: inline-block; padding: .6rem 1.3rem .62rem; border: 1px solid var(--gold); background: rgba(217, 196, 138, .08); color: var(--gold); font-family: var(--display); font-size: 1rem; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; }
+.btn:hover, .btn:focus-visible { background: var(--gold); color: var(--night); }
+.quiet { font-style: italic; text-underline-offset: .25em; text-decoration-thickness: 1px; color: var(--bone-2); }
+.quiet:hover, .quiet:focus-visible { color: var(--mist); }
+.buy { display: flex; flex-wrap: wrap; gap: .9rem 1.4rem; align-items: center; }
+
+.top { position: absolute; z-index: 20; top: 0; left: 0; right: 0; }
+.made { margin: 0; padding: .45rem var(--gutter); background: #060306; color: var(--bone-2); font-size: .98rem; line-height: 1.35; text-align: center; }
+.bar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .8rem var(--gutter); }
+.mark { font-family: var(--display); font-size: 1.2rem; letter-spacing: .2em; text-transform: uppercase; text-decoration: none; color: var(--bone); }
+.bar nav { display: flex; gap: 1.4rem; font-size: 1rem; }
+.bar nav a { text-decoration: none; color: var(--bone-2); }
+.bar nav a:hover, .bar nav a:focus-visible { color: var(--mist); }
+
+/* Hero: down through the Flesh and Blood cover. We start on Richard and the blood moon and the
+   scroll carries us down his coat into the street below, where the lamps come on one by one and
+   Samantha runs on into the mist. Plate, a drifting mist plane cut from the cover, Samantha cut
+   out, and glows set on the cover's own lamps. Transform and opacity only. */
+.hero { position: relative; height: 100svh; min-height: 38rem; }
+.js .hero { height: 360svh; }
+.stage { position: sticky; top: 0; height: 100svh; min-height: 38rem; overflow: hidden; background: var(--night); }
+.scene { position: absolute; left: 0; top: 0; transform-origin: 0 0; will-change: transform; container-type: inline-size; overflow: hidden; }
+.scene .edge { position: absolute; inset: 0; background: linear-gradient(90deg, var(--night), rgba(13, 7, 13, 0) 10%, rgba(13, 7, 13, 0) 90%, var(--night)), linear-gradient(rgba(13, 7, 13, 0) 92%, var(--night)); pointer-events: none; }
+.scene > img, .scene > div { position: absolute; max-width: none; }
+.scene .plate { left: 0; top: 0; width: 100%; height: 100%; }
+.runner { left: 12.08%; top: 73.64%; width: 6.52%; height: 9.64%; transform-origin: 50% 100%; will-change: transform; }
+.mist { left: -4%; top: 49.63%; width: 108%; height: 41.8%; will-change: transform; opacity: .9; }
+.lamp { width: 7cqw; height: 7cqw; margin: -3.5cqw 0 0 -3.5cqw; border-radius: 50%; opacity: 0; will-change: opacity;
+  background: radial-gradient(circle closest-side, rgba(255, 236, 244, .95), rgba(255, 170, 214, .5) 32%, rgba(220, 120, 190, .14) 62%, rgba(220, 120, 190, 0)); }
+.title { position: absolute; inset: 0; color: var(--gold); pointer-events: none; opacity: 0; will-change: opacity; }
+.title span { position: absolute; font-family: var(--display); line-height: 1; letter-spacing: .02em; text-shadow: 0 .02em .02em rgba(40, 20, 10, .7); white-space: nowrap; }
+.title .t1 { left: 28.3%; top: 52.4%; font-size: 13.4cqw; }
+.title .t2 { left: 32.5%; top: 65.1%; font-size: 13.4cqw; }
+.title .t3 { left: 23.7%; top: 77.3%; font-size: 13.4cqw; }
+.lines p { position: absolute; left: var(--gutter); right: var(--gutter); bottom: 8svh; margin: 0; font-style: italic; font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.35; text-shadow: 0 1px 14px rgba(0, 0, 0, .95); opacity: 0; will-change: transform, opacity; text-wrap: balance; }
+.lines .l1 { opacity: 1; }
+.end { position: absolute; left: var(--gutter); right: var(--gutter); bottom: 6svh; opacity: 0; will-change: transform, opacity; }
+.end .tag { font-family: var(--display); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); font-size: .95rem; margin-bottom: .4rem; }
+.end p { text-shadow: 0 1px 12px rgba(0, 0, 0, .95); }
+@media (min-width: 761px) {
+  .lines p, .end { left: auto; right: var(--gutter); width: min(27rem, 34vw); }
+  .lines p { bottom: auto; top: 46%; }
+  .end { bottom: auto; top: 40%; }
+}
+html:not(.js) .lines { display: none; }
+html:not(.js) .end, html:not(.js) .title, html:not(.js) .lamp { opacity: 1; }
+
+/* Calm sections */
+.band { padding: clamp(4.5rem, 10vw, 8rem) 0; }
+h2 { font-size: clamp(2.2rem, 4.4vw, 3.4rem); margin-bottom: 1.3rem; color: var(--gold); text-wrap: balance; }
+.book { background: var(--plum); }
+.book .grid { display: grid; grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
+.book .cover-s { box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, .6); position: sticky; top: 2rem; }
+.blurb { max-width: 38rem; }
+.blurb .hook { font-family: var(--display); font-size: clamp(1.4rem, 2.4vw, 1.85rem); line-height: 1.3; color: var(--mist); margin-bottom: 1.4rem; }
+.facts { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: .3rem 1.4rem; margin: 1.6rem 0 2rem; padding: 1rem 0; border-top: 1px solid rgba(217, 196, 138, .35); border-bottom: 1px solid rgba(217, 196, 138, .35); }
+.facts dt { font-family: var(--display); color: var(--gold); letter-spacing: .08em; }
+.facts dd { margin: 0; color: var(--bone-2); }
+.stores { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; margin-top: 1.3rem; }
+
+.wulf { background: #0f1824; }
+.wulf h2 { color: #cfd9e6; }
+.wulf .intro { max-width: 40rem; font-size: clamp(1.2rem, 1.8vw, 1.4rem); }
+.wulf .row { list-style: none; margin: 2.6rem 0 1.4rem; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(1rem, 3vw, 2.4rem); }
+.wulf .row img { box-shadow: 0 1rem 2.2rem rgba(0, 0, 0, .55); }
+.wulf .row span { display: block; margin-top: .7rem; font-family: var(--display); letter-spacing: .08em; color: #cfd9e6; font-size: .98rem; }
+.wulf .soon { font-style: italic; color: #9fb0c4; }
+
+.sword { background: var(--dusk); }
+.sword .grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(2rem, 6vw, 6rem); align-items: center; }
+.sword .big { font-family: var(--display); font-size: clamp(1.8rem, 3.6vw, 2.8rem); line-height: 1.2; color: var(--bone); margin-bottom: 1.4rem; }
+.sword img { box-shadow: 0 1.4rem 3rem rgba(0, 0, 0, .55); max-width: 22rem; }
+.where { list-style: none; padding: 0; margin: 1.6rem 0 0; border-top: 1px solid rgba(217, 196, 138, .35); }
+.where li { border-bottom: 1px solid rgba(217, 196, 138, .35); }
+.where a { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: .85rem 0; text-decoration: none; }
+.where a span { color: var(--bone-2); font-style: italic; text-align: right; }
+.where a:hover, .where a:focus-visible { color: var(--mist); }
+
+footer { padding: 2.2rem 0 2.6rem; background: #060306; color: var(--bone-2); font-size: .98rem; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: .8rem 2rem; justify-content: space-between; }
+footer p { margin: 0; }
+
+@media (max-width: 760px) {
+  body { font-size: 1.1rem; }
+  .mark { font-size: 1rem; letter-spacing: .14em; }
+  .bar nav { gap: 1rem; }
+  .bar nav .wide { display: none; }
+  .book .grid, .sword .grid { grid-template-columns: minmax(0, 1fr); }
+  .book .cover-s { position: static; max-width: 15rem; }
+  .wulf .row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sword img { max-width: 14rem; order: -1; }
+}
+</style>
+</head>
+<body>
+<div class="top">
+  <p class="made">A homepage idea made by Sparsh Saini for Sarah Downing. Not their official site.</p>
+  <div class="bar">
+    <a class="mark" href="#">Sarah Downing</a>
+    <nav aria-label="Main">
+      <a href="#book">Flesh and Blood</a>
+      <a class="wide" href="#wulfharan">Wulfharan</a>
+      <a href="#about">About</a>
+    </nav>
+  </div>
+</div>
+
+<main>
+<section class="hero" aria-label="Flesh and Blood">
+  <div class="stage">
+    <div class="scene">
+      <img class="plate" src="img/plate.jpg" alt="Flesh and Blood cover: a dark-haired man in a black coat in profile against a blood moon; below, a woman runs down a misty, lamplit street" width="1250" height="1914" fetchpriority="high">
+      <img class="runner" src="img/runner.webp" alt="" width="163" height="369">
+      <div class="lamp" style="left:52%;top:62.96%"></div>
+      <div class="lamp" style="left:43.2%;top:63.22%"></div>
+      <div class="lamp" style="left:35.76%;top:66.09%"></div>
+      <div class="lamp" style="left:32%;top:68.44%"></div>
+      <div class="lamp" style="left:27.36%;top:70.69%"></div>
+      <div class="lamp" style="left:23.2%;top:72.78%"></div>
+      <div class="lamp" style="left:12.96%;top:73.41%"></div>
+      <div class="lamp" style="left:10.56%;top:72.21%"></div>
+      <div class="lamp" style="left:8%;top:70.17%"></div>
+      <div class="lamp" style="left:5.76%;top:68.6%"></div>
+      <img class="mist" src="img/mist.webp" alt="" width="1250" height="800">
+      <div class="edge"></div>
+      <div class="title" aria-hidden="true"><span class="t1">FLESH</span><span class="t2">AND</span><span class="t3">BLOOD</span></div>
+    </div>
+    <div class="lines" aria-hidden="true">
+      <p class="l1">A murdered family. One survivor. A vampire with amnesia.</p>
+      <p class="l2">Samantha Woods returns home to find her family slaughtered and the household wards intact.</p>
+    </div>
+    <div class="end">
+      <p class="tag">Out now</p>
+      <h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Flesh and Blood</h1>
+      <p>Urban fantasy noir, for adults. Vampires, and magic that feels real.</p>
+      <div class="buy">
+        <a class="btn" href="https://www.amazon.co.uk/dp/B0HLZTG2RQ/">Get the book</a>
+        <a class="quiet" href="https://www.sarah-downing.com/s/Flesh-And-Blood_excerpt-2026.pdf">Read the first three chapters</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band book" id="book">
+  <div class="wrap grid">
+    <img class="cover-s" src="img/flesh-and-blood.jpg" alt="Flesh and Blood by Sarah Downing" width="560" height="858" loading="lazy">
+    <div class="blurb">
+      <h2>Flesh and Blood</h2>
+      <p class="hook">A murdered family. One survivor. A vampire with amnesia.</p>
+      <p>Vampire Richard Dawes wakes beside the murdered bodies of a respected vampirologist and his family, with no memory of the night before.</p>
+      <p>If he is to figure out the truth, Richard is going to have to work with the one person who has every reason to hate him…</p>
+      <p>Samantha Woods returns home to find her family slaughtered and the household wards intact. With no signs of tampering, the police are quick to blame her father. As the papers call for a national cull, Samantha is determined to clear his name.</p>
+      <p>As Richard’s memories begin to return, it becomes clear that what happened that night wasn’t an accident.</p>
+      <dl class="facts">
+        <dt>Genre</dt><dd>Urban fantasy, noir thriller</dd>
+        <dt>For</dt><dd>Adults</dd>
+        <dt>Magic</dt><dd>Vampires, and magic that’s realistic</dd>
+      </dl>
+      <div class="buy">
+        <a class="btn" href="https://www.amazon.co.uk/dp/B0HLZTG2RQ/">Amazon UK</a>
+        <a class="quiet" href="https://www.sarah-downing.com/s/Flesh-And-Blood_excerpt-2026.pdf">First three chapters, free</a>
+      </div>
+      <p class="stores"><a class="quiet" href="https://www.waterstones.com/book/flesh-and-blood/sarah-downing/9781066876600">Waterstones</a><a class="quiet" href="https://www.amazon.com/dp/B0HLZTG2RQ/">Amazon.com</a><a class="quiet" href="https://www.barnesandnoble.com/w/flesh-and-blood-sarah-downing/1151327052?ean=9781066876600">Barnes &amp; Noble</a><a class="quiet" href="https://www.kobo.com/gb/en/ebook/flesh-and-blood-116">Kobo</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="band wulf" id="wulfharan">
+  <div class="wrap">
+    <h2>The Wulfharan Series</h2>
+    <p class="intro">A character-driven dark fantasy in four books, set in a world where gods walk among mortals, magic is part of everyday life, and shapeshifters are bound to an ancient and troubled past. It begins when Coiran, who has known nothing but slavery, is rescued by Elam, a disowned prince.</p>
+    <ul class="row">
+      <li><img src="img/bound.jpg" alt="Bound cover" width="360" height="574" loading="lazy"><span>Bound</span></li>
+      <li><img src="img/weft-of-crimson.jpg" alt="Weft of Crimson cover" width="360" height="574" loading="lazy"><span>Weft of Crimson</span></li>
+      <li><img src="img/wolf-in-shadow.jpg" alt="Wolf in Shadow cover" width="360" height="574" loading="lazy"><span>Wolf in Shadow</span></li>
+      <li><img src="img/blood-song.jpg" alt="Blood Song cover" width="360" height="574" loading="lazy"><span>Blood Song</span></li>
+    </ul>
+    <p class="soon">A new edition is coming soon from Sable Dragon, my own imprint for dark, character-driven fantasy.</p>
+  </div>
+</section>
+
+<section class="band sword" id="about">
+  <div class="wrap grid">
+    <div>
+      <h2>Sarah Downing</h2>
+      <p class="big">I spent a decade studying Traditional English Martial Arts in order to write better fight scenes.</p>
+      <p>I write character-driven dark fantasy about human bonds formed in adversity, shaped by folklore, ecological realism and history. Away from my desk I’m watching wildlife, or adding to an ever-growing hoard of books.</p>
+      <ul class="where">
+        <li><a href="https://www.instagram.com/sarah_downing_author">Instagram <span>@sarah_downing_author</span></a></li>
+        <li><a href="https://www.tiktok.com/@sdbooks0">TikTok <span>@sdbooks0</span></a></li>
+        <li><a href="https://www.facebook.com/sarahdowningauthor">Facebook <span>sarahdowningauthor</span></a></li>
+      </ul>
+    </div>
+    <img src="img/sarah.jpg" alt="Sarah Downing sitting against a tree with a notebook" width="480" height="721" loading="lazy">
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>A mockup made by Sparsh Saini for Sarah Downing. Not affiliated, not live. The covers and words are the author’s.</p>
+    <p><a class="quiet" href="#">Back to top</a></p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const hero = document.querySelector('.hero'), stage = hero.querySelector('.stage'), scene = hero.querySelector('.scene');
+  const runner = scene.querySelector('.runner'), mist = scene.querySelector('.mist'), title = scene.querySelector('.title');
+  const lamps = [...scene.querySelectorAll('.lamp')];
+  const l1 = hero.querySelector('.l1'), l2 = hero.querySelector('.l2'), end = hero.querySelector('.end');
+  const CW = 2500, CH = 3828;
+  const clamp = v => Math.min(1, Math.max(0, v));
+  const ease = t => t * t * (3 - 2 * t);
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let L = null;
+  // The scene is laid out once at its largest; the camera is a transform on it.
+  const layout = () => {
+    const w = stage.clientWidth, h = stage.clientHeight, phone = w <= 760;
+    const s = phone ? h * 1.75 / CH : h * 1.7 / CH;
+    Object.assign(scene.style, { width: CW * s + 'px', height: CH * s + 'px' });
+    // where each view puts which point of the cover: start on his face and the moon,
+    // end on the street with the title, a little further out
+    const cx = phone ? w * .5 : w * .36;
+    L = { s, k1: phone ? .55 : .62,
+      a: [cx - 980 * s, h * .42 - 980 * s],
+      b: k => [cx - (phone ? 1100 : 1150) * s * k, h * .5 - 2700 * s * k] };
+  };
+  const render = p => {
+    if (!L) layout();
+    const d = ease(clamp((p - .04) / .62));        // down his coat into the street
+    const z = ease(clamp((p - .5) / .3));           // and back a little, to take in the title
+    const k = 1 + (L.k1 - 1) * z;
+    const [ax, ay] = L.a, [bx, by] = L.b(k);
+    const x = ax + (bx - ax) * d, y = ay + (by - ay) * d;
+    scene.style.transform = `translate(${x.toFixed(1)}px,${y.toFixed(1)}px) scale(${k.toFixed(4)})`;
+    // the lamps come on down the road, nearest first
+    lamps.forEach((el, i) => { el.style.opacity = ease(clamp((p - (.28 + i * .035)) / .06)).toFixed(3); });
+    // Samantha runs on, away into the mist
+    const r = ease(clamp((p - .3) / .6));
+    runner.style.transform = `translate(${(-r * 70).toFixed(1)}%,${(-r * 14).toFixed(1)}%) scale(${(1 - .3 * r).toFixed(4)})`;
+    mist.style.transform = `translateX(${(-2 + p * 5).toFixed(2)}%)`;
+    title.style.opacity = ease(clamp((p - .55) / .16)).toFixed(3);
+    const a = ease(clamp((p - .16) / .08)); l1.style.opacity = (1 - a).toFixed(3); l1.style.transform = `translateY(${(-a).toFixed(2)}rem)`;
+    const b = ease(clamp((p - .26) / .08)) * (1 - ease(clamp((p - .5) / .08)));
+    l2.style.opacity = b.toFixed(3); l2.style.transform = `translateY(${(1 - b).toFixed(2)}rem)`;
+    const c = ease(clamp((p - .76) / .18)); end.style.opacity = c.toFixed(3); end.style.transform = `translateY(${((1 - c) * 1.2).toFixed(2)}rem)`;
+  };
+  if (reduced) {
+    document.documentElement.classList.remove('js');
+    const fin = () => { L = null; render(1); };
+    fin(); addEventListener('resize', fin);
+    return;
+  }
+  let ticking = false;
+  const update = () => {
+    ticking = false;
+    const run = hero.offsetHeight - innerHeight;
+    render(run > 0 ? clamp(-hero.getBoundingClientRect().top / run) : 1);
+  };
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  addEventListener('resize', () => { L = null; update(); });
+  update();
+})();
+</script>
+</body>
+</html>
